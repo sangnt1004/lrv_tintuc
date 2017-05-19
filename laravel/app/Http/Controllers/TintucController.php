@@ -72,7 +72,8 @@ class TintucController extends Controller
      */
     public function edit($id)
     {
-        return view('edit');
+        $data = TintucModel:: find($id)->toArray();
+        return view('edit',['data' =>$data]);
     }
 
     /**
@@ -84,7 +85,16 @@ class TintucController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tintuc = TintucModel::find($id);
+        $tintuc->tieude =  $request->txtTitle;
+        $tintuc->tacgia =  $request->txtAuthor;
+        $tintuc->trichdan =  $request->txtIntro;
+        $tintuc->noidung =  $request->txtFull;
+        $tintuc->status =  $request->rdoPublic;
+        $tintuc->created_at =  new DateTime();
+        $tintuc->id_danhmuc =  $request->sltCate;
+        $tintuc->save();
+        return redirect()->route('list');
     }
 
     /**

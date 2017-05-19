@@ -40,7 +40,7 @@
                 <td class="list_td aligncenter">{{ $item["tacgia"] }}</td>
 				<td class="list_td aligncenter">{{ $item["created_at"] }}</td>
                 <td class="list_td aligncenter">
-                    <a href=""><img src="backend\images\edit.png" /></a>&nbsp;&nbsp;&nbsp;
+                    <a href="{{route('edit',['id' => $item["id"]]) }}"><img src="backend\images\edit.png" /></a>&nbsp;&nbsp;&nbsp;
                     <a href="{{route('destroy',['id' => $item["id"]]) }}"><img src="backend\images\delete.png" /></a>
                 </td>
             </tr>

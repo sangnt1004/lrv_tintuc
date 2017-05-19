@@ -17,7 +17,8 @@ Route::get('/', function () {
 Route::get('index','TintucController@index')->name('list');
 Route::get('list','TintucController@list')->name('list');
 Route::get('add','TintucController@create');
-Route::get('edit','TintucController@edit');
 Route::post('add','TintucController@store');
 Route::get('delete/{id}','TintucController@destroy')->name('destroy');
+Route::get('edit/{id}','TintucController@edit')->name('edit');
+Route::post('edit/{id}','TintucController@update')->name('update');
 
